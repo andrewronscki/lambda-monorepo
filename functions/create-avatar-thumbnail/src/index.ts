@@ -8,6 +8,7 @@ export const handler: Handler = async ({ Records: records }: S3Event) => {
   try {
     await Promise.all(
       records.map(async record => {
+		console.log('teste')
         const { key } = record.s3.object;
 
         let input = await thumbnail.getImage(key, record.s3.bucket.name)
